@@ -21,7 +21,7 @@ En anonym nettside hvor elever kan rate lærere fra 1–5 stjerner og legge igje
 
 ## Database
 
-Kjør dette i MySQL for å sette opp tabellene:
+Dette kjøres i MySQL for å sette opp tabellene:
 
 ```sql
 CREATE TABLE teachers (
@@ -41,12 +41,12 @@ CREATE TABLE reviews (
 );
 ```
 
-Legg til lærere manuelt (eller bygg en admin-side):
+Lærere legges inn manuelt:
 
 ```sql
 INSERT INTO teachers (name, subject) VALUES
   ('Kari Nordmann', 'Matematikk'),
-  ('Ole Hansen', 'Norsk'),
+  ('Ole Hansen', 'Programmering'),
   ('Lise Dahl', 'Engelsk');
 ```
 
@@ -54,27 +54,13 @@ INSERT INTO teachers (name, subject) VALUES
 
 ## Oppsett
 
-### 1. `db.php`
+### 1. Last opp filer
 
-Fyll inn dine egne verdier:
+Filene lastes opp til serveren. (f.eks. via FTP eller direkte på VPS). Mappestrukturen må bevares slik at `api/submit.php` ligger i en undermappe.
 
-```php
-<?php
-$pdo = new PDO(
-  'mysql:host=localhost;dbname=DITT_DBNAVN;charset=utf8',
-  'BRUKER',
-  'PASSORD',
-  [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-);
-```
+### 2. Tillatelser
 
-### 2. Last opp filer
-
-Last opp alle filene til serveren din (f.eks. via FTP eller direkte på VPS). Mappestrukturen må bevares slik at `api/submit.php` ligger i en undermappe.
-
-### 3. Tillatelser
-
-Sørg for at PHP har lesetilgang til alle filer og at webserveren peker på rotkatalogen.
+Sørges for at PHP har lesetilgang til alle filer og at webserveren peker på rotkatalogen.
 
 ---
 
@@ -113,7 +99,6 @@ teacher.php?id=X
 
 ## Teknisk stack
 
-- **Frontend:** HTML5, CSS3 (custom properties, CSS grid, animasjoner), Vanilla JS (Fetch API)
+- **Frontend:** HTML5, CSS3, Vanilla JS (Fetch API)
 - **Backend:** PHP 8+, PDO
 - **Database:** MySQL / MariaDB
-- **Fonter:** Syne + DM Sans (Google Fonts)
