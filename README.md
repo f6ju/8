@@ -86,7 +86,7 @@ teacher.php?id=X
 
 ## Sikkerhet
 
-| Tiltak | Hvor |
+| Tiltak | Hvor |   
 |---|---|
 | Prepared statements (PDO `?`) | Alle DB-spørringer – ingen SQL injection |
 | `htmlspecialchars()` | Alle steder brukerdata skrives ut i HTML |
